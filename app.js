@@ -3,7 +3,11 @@ const connectDB = require('./config/db');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
-const register = require('./routes/users');
+const auth = require('./routes/auth');
+const user = require('./routes/user');
+const category = require('./routes/category');
+const product = require('./routes/product');
+const order = require('./routes/order');
 
 const app = express();
 
@@ -19,7 +23,12 @@ app.use(cookieParser());
 app.use(cors());
 
 
-app.use('/auth',register);
+app.use('/api',auth);
+app.use('/api',user);
+app.use('/api',category);
+app.use('/api',product);
+app.use('/api',order);
+
 const PORT = process.env.PORT || 5000;
   
 app.listen(PORT, () => {

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const router = express.Router();
 const { check, validationResult } = require('express-validator/check');
@@ -74,7 +75,7 @@ router.post('/login',[
             });
           }
 
-          const token = jwt.sign({ _id: user._id }, "shhhh");
+          const token = jwt.sign({ _id: user._id }, process.env.SECRET);
           //put token in cookie
           res.cookie("token", token, { expire: new Date() + 9999 });
       
@@ -96,5 +97,6 @@ router.get('/logout',(req,res) => {
         message:"User Logout"
     });
 });
+
 
 module.exports = router;
