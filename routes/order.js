@@ -4,8 +4,26 @@ const router = express.Router();
 
 const {getUserById,pushOrderInPurchaseList} = require('../controllers/user');
 const {updateStock} = require('../controllers/product');
-const {} = require('../controllers/order');
+const {getOrderById,createOrder,getAllOrders,updateStatus,getOrderStatus} = require('../controllers/order');
 const {isSignedIn,isAuthenticated, isAdmin} = require('../controllers/auth');
 
-router.params("userId",getUserById);
-router.params("orderId",getOrderById);
+router.param("userId",getUserById);
+router.param("orderId",getOrderById);
+
+router.post('/order/create/:userId',isSignedIn,isAuthenticated,pushOrderInPurchaseList,updateStock,createOrder);
+router.get('/order/all/:userId',isSignedIn,isAuthenticated,getAllOrders);
+router.get(
+    "/order/status/:userId",
+    isSignedIn,
+    isAuthenticated,
+    isAdmin,
+    getOrderStatus
+  );
+  router.put(
+    "/order/:orderId/status/:userId",
+    isSignedIn,
+    isAuthenticated,
+    isAdmin,
+    updateStatus
+  );
+  module.exports = router;

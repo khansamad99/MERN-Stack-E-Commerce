@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 const {getUserById} = require('../controllers/user');
-const {getProductById,createProduct,getProduct,photo,deleteProduct,updateProduct} = require('../controllers/product');
+const {getProductById,getAllProducts,createProduct,getProduct,photo,deleteProduct,updateProduct} = require('../controllers/product');
 const {isSignedIn,isAuthenticated, isAdmin} = require('../controllers/auth');
 
 router.param('userId',getUserById);
