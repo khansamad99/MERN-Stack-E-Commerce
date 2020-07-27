@@ -8,7 +8,7 @@ const expressJwt = require("express-jwt");
 
 
 //Register Route
-router.post('/register',[
+router.post('/signup',[
     check('name','Name is required')
         .not()
         .isEmpty(),
@@ -46,7 +46,7 @@ router.post('/register',[
 
 
 //Login Route
-router.post('/login',[
+router.post('/signin',[
     check('email','Email is required')
         .isEmail(),
     check('password','Password field is required')
@@ -91,7 +91,7 @@ router.post('/login',[
 });
 
 //Logout 
-router.get('/logout',(req,res) => {
+router.get('/signout',(req,res) => {
     res.clearCookie("token");
     res.json({
         message:"User Logout"

@@ -3,12 +3,15 @@ const formidable = require('formidable');
 const _ = require('lodash');
 const fs = require('fs');
 
-exports.getProductById = (req,res,id,next) => {
+exports.getProductById = (req,res,next,id) => {
+    //console.log(id);
     Product.findById(id).exec((err,prod) => {
         if(err){
+          console.log(err);
             return res.status(400).json({error:'Cannot find Product'});
         }
         req.product = prod;
+        //console.log(req.product);
         next();
     });
 }
@@ -59,6 +62,7 @@ exports.photo = (req,res,next) => {
 }
 
 exports.deleteProduct = (req,res) => {
+  //console.log('a');
     const product = req.product;
     product.remove((err,deletedProduct) => {
         if(err) return res.status(400).json({err:'Failed to delete'});
@@ -78,7 +82,7 @@ exports.updateProduct = (req, res) => {
       }
   
       //updation code
-      const product = req.product;
+      let product = req.product;
       product = _.extend(product, fields);
   
       //handle file here
