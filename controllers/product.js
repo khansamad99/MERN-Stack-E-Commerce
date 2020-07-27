@@ -53,12 +53,13 @@ exports.getProduct = (req,res) => {
     return res.json(req.product);
 }
 
-exports.photo = (req,res,next) => {
+exports.getPhoto = (req,res) => {
+    console.log('photo');
     if(req.product.photo.data){
         res.set('Content-Type',req.product.photo.contentType)
         return res.send(req.product.photo.data)
     }
-    next();
+
 }
 
 exports.deleteProduct = (req,res) => {
@@ -116,7 +117,6 @@ exports.updateProduct = (req, res) => {
     const sortBy = req.query.sortBy ? req.query.sortBy : "_id";
   
     Product.find()
-      .select("-photo")
       .populate("category")
       .sort([[sortBy, "asc"]])
       .limit(limit)
@@ -127,6 +127,7 @@ exports.updateProduct = (req, res) => {
           });
         }
         res.json(products);
+        //console.log(products);
       });
   };
 
