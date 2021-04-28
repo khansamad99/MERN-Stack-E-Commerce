@@ -1,4 +1,4 @@
 # MERN-Stack-E-Commerce
-A T-shirt selling website (Ongoing Project)
+A T-shirt selling website 
 
 https://github.com/khansamad99/FrontEndShoppingWeb
