@@ -1,4 +1,4 @@
-# Dev-Connector
+# Pro-Shop
 A MERN Stack T-Shirt selling Website 
 
 ## Features
@@ -8,12 +8,7 @@ A MERN Stack T-Shirt selling Website
 - Create,delete T-shirts by admin
 - Payment Integration
 
-![screenshot](https://github.com/khansamad99/Dev-Connector/blob/master/Screenshot%20(80).png)
-
-![screenshot](https://github.com/khansamad99/Dev-Connector/blob/master/Screenshot%20(82).png)
-
-![screenshot](https://github.com/khansamad99/Dev-Connector/blob/master/Screenshot%20(83).png)
-
+![screenshot](https://github.com/khansamad99/MERN-Stack-E-Commerce/blob/master/Screenshot%20(101).png)
 
 
 
